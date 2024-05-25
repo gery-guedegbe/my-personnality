@@ -89,9 +89,9 @@ h2 {
     --grid-size: 90px;
     --grid-strength: 2px;
     --grid-dash: 10px;
-    --grid-gap: 5px;
-    --grid-color: #b5b2b2;
-    --paper-color: #fff;
+    --grid-gap: 4px;
+    --grid-color: #e5e5e5;
+    --paper-color: #ffffff;
 
     background-color: var(--paper-color);
     background-size: var(--grid-dash) var(--grid-dash),

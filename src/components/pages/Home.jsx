@@ -10,12 +10,12 @@ const Home = () => {
   };
   return (
     <div className="dashed-grid-paper bg-cover bg-center h-screen">
-      <div className="h-screen flex flex-col gap-6 items-center justify-center text-center py-10 ">
-        <h1 className="font-redHat text-xl md:text-3xl lg:text-5xl font-semibold mt-20 ">
+      <div className="h-screen flex flex-col gap-6 items-center justify-center text-center py-10">
+        <h1 className="font-redHat text-2xl md:text-3xl lg:text-5xl font-semibold mt-20 ">
           &lt;&lt;C'est une expérience incroyable que d'être enfin
           compris.&gt;&gt;
         </h1>
-        <div className=" px-8 md:px-48 text-sm md:text-lg">
+        <div className=" px-8 md:px-48 text-base  md:text-lg">
           Obtenez une description prodigieusement précise de vous-même, de vos
           motivations et de ce qui vous anime.
         </div>

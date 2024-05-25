@@ -140,7 +140,7 @@ const Test = () => {
   };
 
   return (
-    <div className="bg-white md:py-20 py-20 flex flex-col gap-16 items-center justify-center text-center">
+    <div className="w-full bg-white md:py-20 py-20 flex flex-col gap-16 items-center justify-center text-center">
       <div className="grid grid-row-2 gap-0 md:gap-10">
         <div className="text-xl md:text-2xl lg:text-4xl font-bold mt-10">
           Test de Personnalité Gratuit
@@ -197,7 +197,7 @@ const Test = () => {
                   )
                 }
               >
-                <div className="w-full text-sm md:text-lg">{option1}</div>
+                <div className="w-full text-base md:text-lg ">{option1}</div>
                 <div
                   className={`w-10 h-10 flex items-center justify-center rounded-full text-lg ${
                     selectedOption === "btn-option-1"
@@ -235,7 +235,7 @@ const Test = () => {
                   )
                 }
               >
-                <div className="w-full text-sm md:text-lg">{option2}</div>
+                <div className="w-full text-base md:text-lg">{option2}</div>
                 <div
                   className={`w-10 h-10 flex items-center justify-center rounded-full text-lg ${
                     selectedOption === "btn-option-2"
