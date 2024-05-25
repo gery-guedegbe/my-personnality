@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/pages/Navbar";
+import Test from "./components/pages/Test";
+import PersonalityTypes from "./components/pages/PersonalityTypes";
+import About from "./components/pages/About";
+import Home from "./components/pages/Home";
+import Footer from "./components/pages/Footer";
+import Result from "./components/pages/Result";
+import { PersonalityProvider } from "./Context/PersonalityContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PersonalityProvider>
+      <Router>
+        <div className="App grid">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="/personalitytypes" element={<PersonalityTypes />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/result" element={<Result />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </PersonalityProvider>
   );
 }
 

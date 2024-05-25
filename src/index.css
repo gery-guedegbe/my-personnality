@@ -1,13 +1,247 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
+
+:root {
+  /*Colors*/
+  --violet: #f6cae4;
+  --vert-citron: #cdf4cd;
+  --yellow: #fbee9d;
+  /*Fonts*/
+  --font-red-hat: "Red Hat Display", sans-serif;
+  --font-spline: "Spline Sans Mono", monospace;
+  --font-script: "Marck Script", cursive;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-spline);
+  background-color: #ffffff;
+}
+
+.logo {
+  font-family: var(--font-script);
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.mypersonnality {
+  font-family: var(--font-script);
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+h2 {
+  font-size: 1rem;
+  font-family: var(--font-spline);
+  font-weight: 400;
+}
+
+.dashed-grid-paper {
+  --grid-size: 90px;
+  --grid-strength: 1px;
+  --grid-dash: 10px;
+  --grid-gap: 5px;
+  --grid-color: #b5b2b2;
+  --paper-color: #fff;
+
+  background-color: var(--paper-color);
+  background-size: var(--grid-dash) var(--grid-dash),
+    var(--grid-size) var(--grid-size);
+  background-image: linear-gradient(
+      to bottom,
+      transparent var(--grid-gap),
+      var(--paper-color) var(--grid-gap)
+    ),
+    linear-gradient(
+      to right,
+      var(--grid-color) var(--grid-strength),
+      transparent var(--grid-strength)
+    ),
+    linear-gradient(
+      to right,
+      transparent var(--grid-gap),
+      var(--paper-color) var(--grid-gap)
+    ),
+    linear-gradient(
+      to bottom,
+      var(--grid-color) var(--grid-strength),
+      transparent var(--grid-strength)
+    );
+}
+
+@media (max-width: 950px) {
+  .dashed-grid-paper {
+    --grid-size: 90px;
+    --grid-strength: 2px;
+    --grid-dash: 10px;
+    --grid-gap: 5px;
+    --grid-color: #b5b2b2;
+    --paper-color: #fff;
+
+    background-color: var(--paper-color);
+    background-size: var(--grid-dash) var(--grid-dash),
+      var(--grid-size) var(--grid-size);
+    background-image: linear-gradient(
+        to bottom,
+        transparent var(--grid-gap),
+        var(--paper-color) var(--grid-gap)
+      ),
+      linear-gradient(
+        to right,
+        var(--grid-color) var(--grid-strength),
+        transparent var(--grid-strength)
+      ),
+      linear-gradient(
+        to right,
+        transparent var(--grid-gap),
+        var(--paper-color) var(--grid-gap)
+      ),
+      linear-gradient(
+        to bottom,
+        var(--grid-color) var(--grid-strength),
+        transparent var(--grid-strength)
+      );
+  }
+}
+
+.shapes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.shape {
+  position: absolute;
+}
+
+.s1 {
+  left: 10%;
+  top: 20%;
+}
+
+.s2 {
+  left: 11%;
+  top: 50%;
+}
+
+.s3 {
+  left: 20%;
+  bottom: 20%;
+}
+
+.s4 {
+  left: 60%;
+  bottom: 20%;
+}
+
+.s5 {
+  left: 40%;
+  top: 20%;
+}
+
+.s6 {
+  left: 36%;
+  bottom: 10%;
+}
+
+.s7 {
+  top: 20%;
+  right: 30%;
+}
+
+.s8 {
+  right: 24%;
+  bottom: 40%;
+}
+
+.s9 {
+  right: 10%;
+  top: 40%;
+}
+
+.s10 {
+  top: 45%;
+  right: 1%;
+}
+
+.s11 {
+  bottom: 10%;
+  right: 20%;
+}
+
+.violetGradient {
+  background-image: linear-gradient(
+    0deg,
+    rgba(244, 40, 244, 1) 35%,
+    rgba(244, 16, 244, 1) 65%,
+    rgba(244, 0, 244, 1) 100%
+  );
+}
+
+.scroll__down {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  transform: translateY(-80px) translateY(-50%) rotate(45deg);
+}
+
+.scroll__down span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  animation: animate 1.5s linear infinite;
+  opacity: 0;
+}
+
+.scroll__down span:nth-child(1) {
+  transform: translate(-15px, -15px);
+  animation-delay: -0.4s;
+}
+.scroll__down span:nth-child(2) {
+  transform: translate(0, 0);
+  animation-delay: -0.2s;
+}
+.scroll__down span:nth-child(3) {
+  transform: translate(15px, 15px);
+  animation-delay: 0s;
+}
+
+@keyframes animate {
+  0% {
+    top: -5px;
+    left: -5px;
+    opacity: 0;
+  }
+  25% {
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+  }
+  0% {
+    top: 5px;
+    left: 5px;
+    opacity: 0;
+  }
 }
