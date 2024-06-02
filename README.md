@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# MyPersonality
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bienvenue sur **MyPersonality**, une application web interactive qui vous permet de découvrir votre type de personnalité en répondant à une série de questions. Basé sur les principes du MBTI, notre test vous aide à mieux vous comprendre et à découvrir comment votre type de personnalité influence divers aspects de votre vie.
 
-## Available Scripts
+![Build Status](https://img.shields.io/github/actions/workflow/status/gery-guedegbe/my-personnality/ci.yml?branch=main)
+![License](https://img.shields.io/github/license/gery-guedegbe/my-personnality)
 
-In the project directory, you can run:
+## Fonctionnalités
 
-### `npm start`
+- 🎭 **Test de Personnalité** : Répondez à une série de questions pour découvrir votre type de personnalité MBTI.
+- 📊 **Analyse des Résultats** : Recevez une analyse détaillée de vos scores et des pourcentages associés à chaque dimension.
+- 🌐 **Interface Utilisateur Intuitive** : Profitez d'une interface utilisateur simple et facile à utiliser.
+- 💾 **Sauvegarde des Résultats** : Enregistrez vos résultats localement pour les consulter plus tard.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Démo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Vous pouvez essayer une version live de l'application [ici](https://my-personnality.vercel.app/).
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Pour exécuter ce projet localement, suivez les étapes ci-dessous :
 
-### `npm run build`
+1. Clonez le repository :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/gery-guedegbe/my-personnality.git
+   cd my-personnality
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Installez les dépendances :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. Lancez l'application :
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+L'application sera accessible à l'adresse `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Utilisation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Après avoir démarré l'application, suivez les instructions à l'écran pour compléter le test de personnalité. Les résultats seront affichés à la fin du test, avec des analyses détaillées et des pourcentages.
 
-## Learn More
+## Contribution
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Nous accueillons avec plaisir les contributions de la communauté ! Pour contribuer, suivez les étapes suivantes :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Fork le repository
+2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
+3. Committez vos modifications (`git commit -m 'Add some AmazingFeature'`)
+4. Pushez votre branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
 
-### Code Splitting
+Pour plus de détails, consultez le fichier [CONTRIBUTING.md](CONTRIBUTING.md).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
+Distribué sous la licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus d'informations.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Remerciements
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Merci à tous les contributeurs et aux utilisateurs de **MyPersonality**. Votre soutien et vos retours sont précieux pour moi !
