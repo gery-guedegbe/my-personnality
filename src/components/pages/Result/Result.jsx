@@ -11,8 +11,10 @@ const Result = () => {
     setIsOpen(!isOpen);
   };
 
+  const defaultLink = "https://my-personnality.vercel.app";
+
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
+    navigator.clipboard.writeText(defaultLink).then(() => {
       setIsCopied(true);
       setTimeout(() => {
         setIsCopied(false);
