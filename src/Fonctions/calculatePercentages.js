@@ -6,7 +6,7 @@ export const calculatePercentages = (scores) => {
   const percentages = {};
 
   for (const [dimension, score] of Object.entries(scores)) {
-    percentages[dimension] = ((score / totalScores) * 100).toFixed(2);
+    percentages[dimension] = (score / totalScores).toFixed(2);
   }
 
   return percentages;

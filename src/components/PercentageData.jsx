@@ -45,7 +45,7 @@ const PercentageData = ({ percentages }) => {
       {
         label: "Pourcentages",
         data: Object.values(percentages).map((percentage) =>
-          parseFloat(percentage.toFixed(2))
+          Math.abs(parseFloat(percentage))
         ),
         backgroundColor: [
           "#F00699",

@@ -45,3 +45,24 @@ export const determinePersonalityType = (scores) => {
 
   return { personalityType, percentages, personalityInfo };
 };
+
+// // Vérifier s'il y a égalité entre deux paires de dimensions
+// const equalDimensions = Object.keys(percentages).filter(
+//   (dimension) => percentages[dimension] === 50
+// );
+
+// // S'il y a égalité entre deux paires de dimensions
+// if (equalDimensions.length === 2) {
+//   // Trouver la question supplémentaire correspondante
+//   const extraQuestion = extraQuestions.find(
+//     (question) => question.dimension === equalDimensions.join("/")
+//   );
+
+//   if (extraQuestion) {
+//     // Mettre à jour les scores avec la réponse à la question supplémentaire
+//     const dimension = extraQuestion.dimension.split("/");
+//     dimension.forEach((dim) => {
+//       setScores(updateScores(scores, dim, 1));
+//     });
+//   }
+// }

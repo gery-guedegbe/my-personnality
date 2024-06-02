@@ -16,8 +16,8 @@ const Home = () => {
           compris.&gt;&gt;
         </h1>
         <div className=" px-8 md:px-48 text-base  md:text-lg">
-          Obtenez une description prodigieusement précise de vous-même, de vos
-          motivations et de ce qui vous anime.
+          Obtenez en 10 minutes seulement une description de qui vous êtes et
+          des raisons qui sous-tendent vos agissements.
         </div>
 
         <button
@@ -28,28 +28,6 @@ const Home = () => {
             Passez le test{" "}
           </span>
         </button>
-
-        {/* <button
-          onClick={handleClick}
-          className="z-50 nav-button hover:drop-shadow-lg flex items-center justify-center rounded-full border border-[#0c550c] bg-[#f6cae4] bg-gradient-to-tr from-[ #dd64dd] to-[#d12ed1]/70 px-7 py-2.5 text-base font-bold text-slate-800 ring-pink-200 ring-offset-2 ring-offset-slate-700 drop-shadow-[0px_1px_2px_rgb(0,0,0,0.3)] active:ring-1"
-        >
-          <span>Passez le test</span>
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 16 16"
-            className="ml-2"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-            ></path>
-          </svg>
-        </button> */}
       </div>
     </div>
   );

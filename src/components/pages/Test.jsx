@@ -9,7 +9,15 @@ import {
 } from "../../Fonctions/analysis";
 import { PersonalityContext } from "../../Context/PersonalityContext";
 
-let Cards = [
+const Choices = [
+  { width: "w-16", height: "h-16", point: 2 },
+  { width: "w-12", height: "h-12", point: 1 },
+  { width: "w-8", height: "h-8", point: 0 },
+  { width: "w-12", height: "h-12", point: -1 },
+  { width: "w-16", height: "h-16", point: -2 },
+];
+
+const Cards = [
   {
     content:
       "Découvrez comment votre type de personnalité influence de nombreux aspects de votre vie.",
@@ -38,7 +46,6 @@ const Test = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [selectedButton, setSelectedButton] = useState(null);
   const [scores, setScores] = useState(initialScores);
-  const [selectedOption, setSelectedOption] = useState("");
   const [userChoices, setUserChoices] = useState(
     Array(questions.length).fill(null)
   );
@@ -55,10 +62,8 @@ const Test = () => {
     if (userChoices[currentQuestionIndex] !== null) {
       const selectedChoice = userChoices[currentQuestionIndex];
       setSelectedButton(selectedChoice);
-      setSelectedOption(selectedChoice);
     } else {
       setSelectedButton(null);
-      setSelectedOption("");
     }
   }, [currentQuestionIndex]);
 
@@ -71,20 +76,15 @@ const Test = () => {
     }
   }, [currentQuestionIndex, userChoices, shuffledQuestions.length]);
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+  const handleClick = (index, point) => {
+    const currentQuestion = shuffledQuestions[currentQuestionIndex];
+    const dimension = currentQuestion.dimension;
 
-  const handleClick = (index, dimension, point) => {
     const previousChoice = userChoices[currentQuestionIndex];
 
     if (previousChoice !== null) {
-      const previousOption =
-        previousChoice === "btn-option-1"
-          ? currentQuestion.option1
-          : currentQuestion.option2;
-      const previousDimension = previousOption.dimension;
-      const updatedScores = updateScores(scores, previousDimension, -1);
+      const previousPoint = Choices[previousChoice].point;
+      const updatedScores = updateScores(scores, dimension, -previousPoint);
       setScores(updateScores(updatedScores, dimension, point));
     } else {
       const updatedScores = updateScores(scores, dimension, point);
@@ -102,7 +102,6 @@ const Test = () => {
     if (selectedButton === null) {
       return;
     }
-
     if (currentQuestionIndex < shuffledQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
@@ -122,8 +121,6 @@ const Test = () => {
   }
 
   const currentQuestion = shuffledQuestions[currentQuestionIndex];
-  const option1 = currentQuestion.option1.text;
-  const option2 = currentQuestion.option2.text;
 
   const handleShowResult = () => {
     const { personalityType, percentages, personalityInfo } =
@@ -159,95 +156,46 @@ const Test = () => {
       <div className="w-full flex items-center justify-center mt-2 md:mt-16">
         <ScrollDown />
       </div>
-      <div className=" w-full h-full dashed-grid-paper bg-cover bg-center flex flex-col gap-6 items-center text-center">
-        <div className="w-full bg-gray-200 h-1.5 md:h-2 dark:bg-gray-700">
+      <div className="w-full h-full dashed-grid-paper bg-cover bg-center flex flex-col gap-6 items-center text-center">
+        <div className="w-full bg-gray-200 h-2 md:h-3 dark:bg-gray-700">
           <div
-            className="bg-lightBlack h-1.5 md:h-2"
+            className="bg-principal h-full"
             style={{ width: `${progressWidth}%` }}
           ></div>
         </div>
-        <div className="w-full relative md:px-20 p-6 md:text-2xl text-lg font-medium ">
+        <div className="w-full relative md:px-20 p-6 md:text-2xl text-lg font-medium">
           {currentQuestion.question || currentQuestion.phrase}
         </div>
-        <div className="w-full px-4 md:max-xl:px-6 md:px-40">
-          <ul className="flex flex-col gap-8 items-center ">
-            <li>
-              <input
-                type="radio"
-                id="btn-option-1"
-                name="btn"
-                value="btn-option-1"
-                className="hidden peer"
-                checked={selectedOption === "btn-option-1"}
-                onChange={handleOptionChange}
-                required
-              />
-              <label
-                htmlFor="btn-option-1"
-                className={`select-none flex gap-4 items-center justify-between w-full p-4 text-gray-900 bg-transparent border border-gray-500 rounded-lg cursor-pointer ${
-                  selectedOption === "btn-option-1"
-                    ? "border-black text-black shadow-lg"
-                    : ""
-                } peer-checked:bg-lightOrange hover:bg-lightOrange`}
-                onClick={() =>
-                  handleClick(
-                    "btn-option-1",
-                    currentQuestion.option1.dimension,
-                    1
-                  )
-                }
-              >
-                <div className="w-full text-base md:text-lg ">{option1}</div>
-                <div
-                  className={`w-10 h-10 flex items-center justify-center rounded-full text-lg ${
-                    selectedOption === "btn-option-1"
-                      ? "text-white bg-principal"
-                      : "text-black "
+        <div className="w-full px-4 flex flex-col gap-6 items-center justify-center">
+          <div className="grid md:grid-cols-3 items-center ">
+            <div className="max-md:hidden md:block text-2xl">D’accord</div>
+            <div className=" flex gap-4 items-center justify-center">
+              {Choices.map((choice, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleClick(index, choice.point)}
+                  className={`${choice.width} ${
+                    choice.height
+                  } flex items-center justify-center text-white text-xl font-medium rounded-full border border-black shadow cursor-pointer ${
+                    selectedButton === index
+                      ? "bg-principal border-principal"
+                      : ""
                   }`}
                 >
-                  <i className="mdi mdi-check"></i>
-                </div>
-              </label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="btn-option-2"
-                name="btn"
-                value="btn-option-2"
-                className="hidden peer"
-                checked={selectedOption === "btn-option-2"}
-                onChange={handleOptionChange}
-                required
-              />
-              <label
-                htmlFor="btn-option-2"
-                className={`select-none flex gap-4 items-center justify-between w-full p-4 text-gray-900 bg-transparent border border-gray-500 rounded-lg cursor-pointer ${
-                  selectedOption === "btn-option-2"
-                    ? "border-black text-black  shadow-lg"
-                    : ""
-                } peer-checked:bg-lightOrange hover:bg-lightOrange`}
-                onClick={() =>
-                  handleClick(
-                    "btn-option-2",
-                    currentQuestion.option2.dimension,
-                    1
-                  )
-                }
-              >
-                <div className="w-full text-base md:text-lg">{option2}</div>
-                <div
-                  className={`w-10 h-10 flex items-center justify-center rounded-full text-lg ${
-                    selectedOption === "btn-option-2"
-                      ? "text-white bg-principal"
-                      : "text-black"
-                  }`}
-                >
-                  <i className="mdi mdi-check"></i>
-                </div>
-              </label>
-            </li>
-          </ul>
+                  {selectedButton === index && (
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                  )}
+                </button>
+              ))}
+            </div>
+            <div className="w-full max-md:hidden md:block text-2xl">
+              Pas d’accord
+            </div>
+          </div>
+          <div className="flex gap-32 items-center justify-between md:hidden">
+            <div className="text-xl">D’accord</div>
+            <div className="w-full text-xl">Pas d’accord</div>
+          </div>
         </div>
         <div className="px-4 mt-4 md:px-0 flex items-center justify-between gap-40 md:gap-96">
           <button
@@ -257,27 +205,24 @@ const Test = () => {
           >
             Précédent
           </button>
-          <button
-            onClick={handleNext}
-            disabled={currentQuestionIndex === shuffledQuestions.length - 1}
-            className="select-none p-4 border border-principal text-white text-lg font-medium rounded-xl bg-principal hover:bg-boldPrincipal shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] leading-normal transition duration-150 ease-in-out"
-          >
-            Suivant
-          </button>
-        </div>
-      </div>
-      {currentQuestionIndex === shuffledQuestions.length - 1 &&
-        userChoices.every((choice) => choice !== null) && (
-          <div className="w-full flex flex-col items-center ">
+          {currentQuestionIndex < shuffledQuestions.length - 1 ? (
+            <button
+              onClick={handleNext}
+              className="select-none p-4 border border-principal text-white text-lg font-medium rounded-xl bg-principal hover:bg-boldPrincipal shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] leading-normal transition duration-150 ease-in-out"
+            >
+              Suivant
+            </button>
+          ) : (
             <button
               ref={resultButtonRef}
               onClick={handleShowResult}
-              className="select-none mb-10 p-4 border border-principal text-white text-lg font-medium rounded-xl bg-principal hover:bg-boldPrincipal shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] leading-normal transition duration-150 ease-in-out"
+              className="select-none p-4 border border-principal text-white text-lg font-medium rounded-xl bg-principal hover:bg-boldPrincipal shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] leading-normal transition duration-150 ease-in-out"
             >
               Voir le résultat
             </button>
-          </div>
-        )}
+          )}
+        </div>
+      </div>
     </div>
   );
 };

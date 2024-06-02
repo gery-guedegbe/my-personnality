@@ -6,7 +6,7 @@ import PersonalityTypes from "./components/pages/PersonalityTypes";
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
 import Footer from "./components/pages/Footer";
-import Result from "./components/pages/Result";
+import Result from "./components/pages/Result/Result";
 import { PersonalityProvider } from "./Context/PersonalityContext";
 
 function App() {
